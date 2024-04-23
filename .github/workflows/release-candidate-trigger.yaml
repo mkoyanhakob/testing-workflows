@@ -1,0 +1,14 @@
+name: 'Staging Deploy'
+
+on:
+  push:
+    tags:
+    - '[0-9].+[0-9].+[0-9]+-rc+[0-9]'
+
+jobs:
+  job_1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Worked'
+        run: echo Worked Properly!
