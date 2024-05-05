@@ -9,18 +9,24 @@ on:
     inputs:
       environment: 
         type: string
+        required: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
     strategy:
-      max-parallel: 1
       matrix:
         sub_environments: ${{ fromJSON(vars.SUB_ENVIRONMENTS)[inputs.environment] }}
+      max-parallel: 1
 
     steps:
       - name: 'Checkout Repo'
         uses: actions/checkout@v3
+
+      - name: 'Debug'
+        run: |
+          ls -la
 
       - name: "Deploy to ${{ matrix.sub_environments }}"
         run: |
