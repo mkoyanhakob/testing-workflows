@@ -9,16 +9,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
-        environment: [
-            "dev", 
-            "test"
-            ]
+        sub_environments: ${{ fromJSON(vars.SUB_ENVIRONMENTS)["dev"] }}
 
     steps:
       - name: 'Checkout Repo'
         uses: actions/checkout@v3
 
-      - name: "Deploy to ${{ matrix.environment }}"
+      - name: "Deploy to ${{ matrix.sub_environments }}"
         run: |
-          echo ${{ matrix.environment }}
+          echo ${{ matrix.sub_environments }}
