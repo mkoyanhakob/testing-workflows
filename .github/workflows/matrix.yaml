@@ -11,7 +11,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        sub_environments: ${{ fromJSON(vars.SUB_ENVIRONMENTS)["dev"] }}
+        sub_environments: ${{ fromJSON(vars.SUB_ENVIRONMENTS)['dev'] }}
 
     steps:
       - name: 'Checkout Repo'
