@@ -1,0 +1,24 @@
+name: 'Deploy dev & test'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [
+            "dev", 
+            "test"
+            ]
+
+    steps:
+      - name: 'Checkout Repo'
+        uses: actions/checkout@v3
+
+      - name: "Deploy to ${{ matrix.environment }}"
+        run: |
+          echo ${{ matrix.environment }}
