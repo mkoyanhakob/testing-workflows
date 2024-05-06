@@ -2,6 +2,7 @@ name: 'DAST API Scan'
 
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   main:
