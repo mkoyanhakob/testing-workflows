@@ -1,0 +1,14 @@
+name: 'DAST API Scan'
+
+on:
+  push:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'ZAP Scan'
+        uses: zaproxy/action-api-scan@v0.7.0
+        with:
+          target: 'https://www.zaproxy.org/'
