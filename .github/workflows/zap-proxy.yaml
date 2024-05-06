@@ -15,4 +15,4 @@ jobs:
 
       - name: 'Report'
         run: |
-          cat report_json.json
+          cat report_html.html
