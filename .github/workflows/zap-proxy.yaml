@@ -8,15 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 'Debug 1'
-        run: |
-          ls -la
-    
       - name: 'ZAP Scan'
         uses: zaproxy/action-api-scan@v0.7.0
         with:
           target: 'https://my-dev.korioclinical.com'
 
-      - name: 'Debug 2'
+      - name: 'Report'
         run: |
-          ls -la
+          cat report_json.json
