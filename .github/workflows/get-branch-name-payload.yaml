@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: 'Print Branch Name'
         run: |
-          echo ${{ toJSON(github) }}
+          echo ${{ toJSON(github.ref_name) }}
