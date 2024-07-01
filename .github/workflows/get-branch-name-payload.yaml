@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: 'Print Branch Name'
         run: |
-          echo ${{ fromJSON(github) }}
+          echo ${{ toJSON(github) }}
