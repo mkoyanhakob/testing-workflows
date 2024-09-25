@@ -1,0 +1,21 @@
+name: 'Check condition regex'
+
+on:
+  workflow_trigger:
+
+jobs:
+  checker:
+    runs-on:
+      - ubuntu-latest
+
+    steps:
+      - name: 'Get service name'
+        id: service-name
+        run: |
+          if [[ "$GITHUB_REF_NAME" == release/* ]]; then
+              echo "microservice-name=abc-${GITHUB_REF_NAME#release/}" >> $GITHUB_OUTPUT
+              echo "microservice-name=abc-${GITHUB_REF_NAME#release/}"
+          else
+              echo "microservice-name=abc" >> $GITHUB_OUTPUT
+              echo "microservice-name=abc" >> $GITHUB_OUTPUT
+          fi
