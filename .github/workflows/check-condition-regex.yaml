@@ -1,7 +1,7 @@
 name: 'Check condition regex'
 
 on:
-  workflow_trigger:
+  workflow_dispatch:
 
 jobs:
   checker:
