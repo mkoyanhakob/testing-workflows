@@ -5,6 +5,15 @@ env:
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        options:
+          - 'test'
+          - 'platform'
+        description: 'Deploy to environment'
+        required: true
+        default: test
   push:
     branches:
       - main
