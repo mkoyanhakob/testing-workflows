@@ -7,6 +7,9 @@ on:
 
 jobs:
   prepare:
-    name: 'Get Microservice Name & Type'
-    run: |
-      echo hello
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: hello
+        run: |
+          echo hello
