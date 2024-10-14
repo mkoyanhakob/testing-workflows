@@ -1,8 +1,15 @@
+name: 'Deploy (dev, test, platform)'
+
+env:
+  environment: ${{ toJson(github.event_name) }}  
+
 on:
   workflow_dispatch:
   push:
     branches:
       - main
+    # paths-ignore:
+    #   - '.github/workflows/**'
 
 jobs:
   detect-trigger:
