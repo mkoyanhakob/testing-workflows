@@ -1,7 +1,4 @@
-name: 'Deploy (dev, test, platform)'
-
-env:
-  environment: ${{ github.event_name == 'workflow_dispatch' && toJson(github.event.inputs.environment) || 'dev' }} 
+name: 'Deploy (dev, test, platform).'
 
 on:
   workflow_dispatch:
@@ -9,6 +6,7 @@ on:
       environment:
         type: choice
         options:
+          - 'dev'
           - 'test'
           - 'platform'
         description: 'Deploy to environment'
@@ -19,6 +17,9 @@ on:
       - main
     # paths-ignore:
     #   - '.github/workflows/**'
+
+env:
+  environment: ${{ github.event_name == 'push' && 'dev' || toJson(github.event.inputs.environment) }} 
 
 jobs:
   detect-trigger:
