@@ -1,4 +1,4 @@
-name: 'Deploy ${{ env.environment }}.'
+name: 'Deploy (dev/test/platform).'
 
 on:
   workflow_dispatch:
