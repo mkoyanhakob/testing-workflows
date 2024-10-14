@@ -1,7 +1,7 @@
 name: 'Deploy (dev, test, platform)'
 
 env:
-  environment: ${{ github.event_name == 'workflow_dispatch' && 'wf_dp' || 'push' }} 
+  environment: ${{ github.event_name == 'workflow_dispatch' && 'wf_dp' || github.event.inputs.environment }} 
 
 on:
   workflow_dispatch:
@@ -27,4 +27,3 @@ jobs:
       - name: 'detect trigger'
         run: |
           echo ${{ env.environment }}
-          echo ${{ toJson(github) }}
