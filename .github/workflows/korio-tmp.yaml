@@ -1,4 +1,6 @@
-run-name: Deploy to ${{ github.event_name == 'push' && 'dev' || toJson(github.event.inputs.environment) }}
+name: Deploy (dev/test/platform)
+
+run-name: Deploy to ${{ github.event_name == 'push' && "dev" || toJson(github.event.inputs.environment) }}
 
 on:
   workflow_dispatch:
