@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/workflows/**'
+
+jobs:
+  detect-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: detect trigger:
+        run: |
+          echo toJson(github)
