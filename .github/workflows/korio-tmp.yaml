@@ -27,3 +27,4 @@ jobs:
       - name: 'detect trigger'
         run: |
           echo ${{ env.environment }}
+          echo ${{ toJson(github) }}
