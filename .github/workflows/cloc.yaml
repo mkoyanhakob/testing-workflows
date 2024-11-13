@@ -1,0 +1,15 @@
+name: 'Run CLOC'
+
+on:
+  push:
+
+jobs:
+  run-cloc:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: 'Pull repo.'
+        uses: actions/checkout@v3
+
+      - name: Count Lines of Code (cloc)
+        uses: djdefi/cloc-action@6
