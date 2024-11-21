@@ -14,4 +14,4 @@ jobs:
 
       - name: 'JQ'
         run: |
-          ARGO_TYPE=$(jq '."dev"."auth-node-llama"' ${{ vars.ARGO_TYPE }})
+          ARGO_TYPE=$(jq '."dev"."auth-node-llama"' ${{ toJSON(vars.ARGO_TYPE) }})
