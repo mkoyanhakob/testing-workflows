@@ -14,4 +14,4 @@ jobs:
 
       - name: 'JQ'
         run: |
-          echo ${{ toJSON(vars.ARGO_TYPE) }} | jq '.dev'
+          echo "${{ vars.ARGO_TYPE }}" | jq '.dev'
