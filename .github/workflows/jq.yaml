@@ -1,0 +1,17 @@
+name: 'Read Json data'
+
+on:
+  push:
+
+jobs:
+  run-jq:
+    runs-on:
+      - ubuntu-latest
+
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'JQ'
+        run: |
+          ARGO_TYPE=$(jq '."dev"."auth-node-llama"' ${{ vars.ARGO_TYPE }})
