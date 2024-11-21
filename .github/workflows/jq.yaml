@@ -14,5 +14,4 @@ jobs:
 
       - name: 'JQ'
         run: |
-          echo ${{ vars.ARGO_TYPE }} > file.json
-          jq '."dev"."auth-node-llama"' file.json
+          echo ${{ toJSON(vars.ARGO_TYPE }}) | jq '.dev'
