@@ -3,6 +3,10 @@ name: Release
 on:
   push:
     tags:
+      #Staging
+      - '[0-9]+.[0-9]+.[0-9]+-rc[0-9]+'
+      - 'release/*/[0-9]+.[0-9]+.[0-9]+-rc[0-9]+'
+      #Prod
       - '[0-9]+.[0-9]+.[0-9]+-rc[0-9]+'
       - 'release/*/[0-9]+.[0-9]+.[0-9]+-rc[0-9]+'
 
@@ -12,5 +16,8 @@ jobs:
       - ubuntu-latest
 
     steps:
-      - name: 'Event Payload'
-        run: echo ${{ toJson(github) }}
+      - name: 'Print environment.'
+        env:
+          release_env: ${{ contains(github.ref_name, "-rc") && 'staging' || 'prod' }}
+        run: |
+          echo $release_env
