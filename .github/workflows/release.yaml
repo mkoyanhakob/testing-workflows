@@ -18,6 +18,6 @@ jobs:
     steps:
       - name: 'Print environment.'
         env:
-          release_env: ${{ contains(github.ref_name, "-rc") && 'staging' || 'prod' }}
+          release_env: ${{ contains(github.ref_name, '-rc') && 'staging' || 'prod' }}
         run: |
           echo $release_env
