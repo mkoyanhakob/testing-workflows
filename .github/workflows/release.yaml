@@ -13,4 +13,4 @@ jobs:
 
     steps:
       - name: 'Event Payload'
-        run: echo ${{ github.events }}
+        run: echo ${{ toJson(github) }}
