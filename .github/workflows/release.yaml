@@ -14,6 +14,10 @@ jobs:
       - ubuntu-latest
 
     steps:
+      - name: 'Print Payload'
+        run: |
+          echo ${{ toJSON(github) }}
+    
       - name: 'Print environment.'
         env:
           release_env: ${{ contains(github.ref_name, '-rc') && 'staging' || 'prod' }}
