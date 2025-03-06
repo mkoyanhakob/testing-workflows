@@ -17,6 +17,7 @@ jobs:
       - name: 'Print Payload'
         run: |
           echo ${{ toJSON(github) }}
+          echo "::warning title=${{ github.sha }} image tag exists. Skipping the build. Appending new tags."
     
       - name: 'Print environment.'
         env:
